@@ -46,11 +46,6 @@ class PostTemplate extends StatelessWidget {
                       TextSpan(
                           text: videoDescription,
                           style: const TextStyle(color: Colors.white)),
-                      const TextSpan(
-                          text: "#vasudevi #JaiMataDi",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
                     ])),
                   ]),
             ),

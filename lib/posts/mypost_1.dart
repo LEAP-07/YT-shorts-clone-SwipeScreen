@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:youtube_shorts_clone/util/post_template.dart';
 
-class MyPost1 extends StatelessWidget {
+class MyPostOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PostTemplate(

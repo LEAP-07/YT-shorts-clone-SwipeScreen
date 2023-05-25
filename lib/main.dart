@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_shorts_clone/pages/SwipeScreen.dart';
+import 'package:youtube_shorts_clone/views/SwipeScreen.dart';
 
 void main() {
   runApp(const MyApp());
