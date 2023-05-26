@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
+class MyButtonInt extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
   final icon;
-  final String number;
+  final Object number;
 
-  MyButton({super.key, this.icon, required this.number});
+  MyButtonInt({super.key, this.icon, required this.number});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         children: [
           Icon(
             icon,
-            size: 32,
+            size: 40,
           ),
           const SizedBox(
             height: 6,
           ),
-          Text(number),
+          Text("$number"),
         ],
       ),
     );

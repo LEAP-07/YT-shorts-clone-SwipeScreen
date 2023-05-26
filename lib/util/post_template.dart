@@ -8,6 +8,7 @@ class PostTemplate extends StatelessWidget {
   final String numberOfLikes;
   final String numberOfComments;
   final String numberOfShares;
+  final String url;
   // ignore: prefer_typing_uninitialized_variables
   final userPost;
   const PostTemplate({
@@ -18,9 +19,12 @@ class PostTemplate extends StatelessWidget {
     required this.numberOfShares,
     required this.numberOfComments,
     required this.userPost,
+    required this.url,
   });
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    final desiredWidth = 0.1 * screenWidth;
     return Scaffold(
       body: Stack(
         children: [
@@ -28,16 +32,49 @@ class PostTemplate extends StatelessWidget {
           userPost,
           //username and caption
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(left: 15, right: 45, bottom: 15),
             child: Container(
+              width: screenWidth * 3.25 / 4,
               alignment: const Alignment(-1, 1),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text("@$username",
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16)),
+                    Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(desiredWidth / 2),
+                          child: Image.network(
+                            url,
+                            width: desiredWidth,
+                            height: desiredWidth,
+                            fit: BoxFit.cover,
+                            loadingBuilder: (BuildContext context, Widget child,
+                                ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) {
+                                // Image is fully loaded
+                                return child;
+                              } else {
+                                // Placeholder or loading indicator
+                                return CircularProgressIndicator();
+                                // return Image.asset(
+                                //   'assets/images/placeholder.png', // Replace with your placeholder image asset path
+                                //   width: desiredWidth,
+                                //   height: desiredWidth,
+                                //   fit: BoxFit.cover,
+                                // );
+                              }
+                            },
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text("@$username",
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16)),
+                      ],
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -51,7 +88,7 @@ class PostTemplate extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(right: 8.0),
             child: Container(
               alignment: const Alignment(1, 1),
               child:
