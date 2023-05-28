@@ -22,14 +22,14 @@ class NavBarRoutes extends StatelessWidget {
 
         switch (currentIndex) {
           case 0:
-            screen = const ListViewScreen();
+            screen = ListViewScreen();
             break;
           case 1:
             screen = const SwipeScreen();
             break;
 
           default:
-            screen = const ListViewScreen();
+            screen = ListViewScreen();
             break;
         }
 
@@ -54,7 +54,7 @@ class NavBarRoutes extends StatelessWidget {
                 activeColor: Color.fromARGB(255, 48, 48, 48),
                 iconSize: 24,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
                 duration: const Duration(milliseconds: 500),
                 tabBackgroundColor: Colors.grey[300]!,
                 color: Colors.grey[400],
@@ -65,7 +65,7 @@ class NavBarRoutes extends StatelessWidget {
                     icon: Icons.list_alt_outlined,
                   ),
                   GButton(
-                    icon: Icons.play_arrow,
+                    icon: Icons.play_arrow_rounded,
                   ),
                 ],
                 selectedIndex: currentIndex,

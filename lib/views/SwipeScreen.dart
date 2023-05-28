@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_shorts_clone/util/video_tile.dart';
 import '../models/postmodel.dart';
 // import '../posts/mypost_1.dart';
 import '../services/services.dart';
@@ -75,7 +74,6 @@ class _SwipeScreenState extends State<SwipeScreen> {
             final username = post?.creator.handle ?? 'Unknown';
             int? count = post?.reaction.count ?? 0;
             int? comments = post?.comment.count ?? 0;
-
             final videoDescription = post?.submission.description ?? '';
             final url = post?.creator.pic ?? "heh";
             final link_video = post?.submission.mediaUrl ?? "";

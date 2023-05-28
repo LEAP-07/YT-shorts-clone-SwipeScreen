@@ -79,7 +79,7 @@ class PostTemplate extends StatelessWidget {
                       Text(
                         "@$username",
                         style: const TextStyle(
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                           fontSize: 16,
                         ),
                       ),
@@ -104,7 +104,7 @@ class PostTemplate extends StatelessWidget {
           ),
           Positioned(
             bottom: 15.0,
-            right: 25.0,
+            right: 10.0,
             child: Align(
               alignment: Alignment.bottomRight,
               child: Padding(
