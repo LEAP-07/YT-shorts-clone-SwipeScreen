@@ -7,14 +7,14 @@ import '../util/post_template.dart';
 // import '../posts/mypost_1.dart';
 import 'dart:convert';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SwipeScreen extends StatefulWidget {
+  const SwipeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _SwipeScreenState createState() => _SwipeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SwipeScreenState extends State<SwipeScreen> {
   List<Post>? postModel;
 
   var isLoaded = false;
@@ -51,6 +51,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       postModel = posts;
       isLoaded = true;
+      print("The response if RECIEVED SUCCESSFULLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     });
   }
 

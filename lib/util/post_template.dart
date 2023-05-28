@@ -100,7 +100,7 @@ class PostTemplate extends StatelessWidget {
           ),
           Positioned(
             bottom: 15.0,
-            right: 15.0,
+            right: 25.0,
             child: Align(
               alignment: Alignment.bottomRight,
               child: Padding(

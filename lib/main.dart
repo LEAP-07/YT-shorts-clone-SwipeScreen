@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_shorts_clone/views/SwipeScreen.dart';
 
+import 'views/navigation.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark),
-      home: HomePage(),
+      home: NavBarRoutes(),
     );
   }
 }
