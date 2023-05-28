@@ -6,14 +6,14 @@ import '../util/post_template.dart';
 // import '../posts/mypost_1.dart';
 import 'dart:convert';
 
-class SwipeScreen extends StatefulWidget {
-  const SwipeScreen({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _SwipeScreenState createState() => _SwipeScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _SwipeScreenState extends State<SwipeScreen> {
+class _HomePageState extends State<HomePage> {
   List<Post>? postModel;
 
   var isLoaded = false;
@@ -50,8 +50,11 @@ class _SwipeScreenState extends State<SwipeScreen> {
     setState(() {
       postModel = posts;
       isLoaded = true;
+<<<<<<< HEAD
       print(
           "The response if RECIEVED SUCCESSFULLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+=======
+>>>>>>> parent of ec921bb ("nothing")
     });
   }
 
