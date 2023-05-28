@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_shorts_clone/util/video_tile.dart';
 import '../models/postmodel.dart';
 // import '../posts/mypost_1.dart';
 import '../services/services.dart';
@@ -6,14 +7,14 @@ import '../util/post_template.dart';
 // import '../posts/mypost_1.dart';
 import 'dart:convert';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SwipeScreen extends StatefulWidget {
+  const SwipeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _SwipeScreenState createState() => _SwipeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SwipeScreenState extends State<SwipeScreen> {
   List<Post>? postModel;
 
   var isLoaded = false;
@@ -50,16 +51,18 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       postModel = posts;
       isLoaded = true;
-<<<<<<< HEAD
       print(
           "The response if RECIEVED SUCCESSFULLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-=======
->>>>>>> parent of ec921bb ("nothing")
     });
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: Colors.grey[900],
       body: PageView.builder(
           itemCount: postModel?.length ?? 0,
@@ -70,21 +73,22 @@ class _HomePageState extends State<HomePage> {
             }
             final post = postModel?[index];
             final username = post?.creator.handle ?? 'Unknown';
+            int? count = post?.reaction.count ?? 0;
+            int? comments = post?.comment.count ?? 0;
+
             final videoDescription = post?.submission.description ?? '';
             final url = post?.creator.pic ?? "heh";
-
+            final link_video = post?.submission.mediaUrl ?? "";
             return PostTemplate(
-              url: url,
-              username: username,
-              videoDescription: videoDescription,
-              numberOfLikes: "1.2M",
-              numberOfComments: "1212",
-              numberOfShares: "122",
-              userPost: Container(
-                // color: Colors.deepPurple[i],
-                child: Center(child: Text('page : $index')),
-              ),
-            );
+                url: url,
+                username: username,
+                videoDescription: videoDescription,
+                numberOfLikes: count,
+                numberOfShares: "",
+                numberOfComments: comments,
+                userPost: VideoTile(
+                  link: link_video,
+                ));
           }),
       // body: PageView(
       //   scrollDirection: Axis.vertical,
