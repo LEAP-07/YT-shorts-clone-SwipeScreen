@@ -51,8 +51,7 @@ class _SwipeScreenState extends State<SwipeScreen> {
     setState(() {
       postModel = posts;
       isLoaded = true;
-      print(
-          "The response if RECIEVED SUCCESSFULLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      print("The response if RECIEVED SUCCESSFULLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     });
   }
 
