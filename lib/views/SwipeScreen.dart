@@ -51,7 +51,8 @@ class _SwipeScreenState extends State<SwipeScreen> {
     setState(() {
       postModel = posts;
       isLoaded = true;
-      print("The response if RECIEVED SUCCESSFULLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      print(
+          "The response if RECIEVED SUCCESSFULLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     });
   }
 
@@ -85,9 +86,7 @@ class _SwipeScreenState extends State<SwipeScreen> {
                 numberOfLikes: count,
                 numberOfShares: "",
                 numberOfComments: comments,
-                userPost: VideoTile(
-                  link: link_video,
-                ));
+                userPost: link_video);
           }),
       // body: PageView(
       //   scrollDirection: Axis.vertical,

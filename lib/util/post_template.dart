@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:youtube_shorts_clone/util/LikeButton.dart';
+import 'package:youtube_shorts_clone/util/video_tile.dart';
+import 'LikeButton.dart';
 import 'button.dart';
 
 class PostTemplate extends StatelessWidget {
@@ -30,7 +32,10 @@ class PostTemplate extends StatelessWidget {
       body: Stack(
         children: [
           // user post is at back
-          userPost,
+
+          // userPost,
+          VideoTile(link: userPost),
+
           // username and caption
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 45, bottom: 15),
@@ -117,7 +122,7 @@ class PostTemplate extends StatelessWidget {
                     ),
                     MyButton(
                       icon: Icons.chat_bubble_outlined,
-                      number: numberOfComments,
+                      number: numberOfComments.toString(),
                     ),
                     const SizedBox(
                       height: 30,
