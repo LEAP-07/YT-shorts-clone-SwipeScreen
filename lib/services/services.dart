@@ -16,7 +16,7 @@ class Services {
         return responseData;
       } else {
         // Request failed with an error status code
-
+        print('Request failed with status: ${response.statusCode}');
         return null;
       }
     } catch (e) {
