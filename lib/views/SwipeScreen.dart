@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_shorts_clone/util/video_tile.dart';
 import '../models/postmodel.dart';
 // import '../posts/mypost_1.dart';
 import '../services/services.dart';
@@ -58,11 +57,6 @@ class _SwipeScreenState extends State<SwipeScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
       backgroundColor: Colors.grey[900],
       body: PageView.builder(
           itemCount: postModel?.length ?? 0,
@@ -73,22 +67,21 @@ class _SwipeScreenState extends State<SwipeScreen> {
             }
             final post = postModel?[index];
             final username = post?.creator.handle ?? 'Unknown';
-            int? count = post?.reaction.count ?? 0;
-            int? comments = post?.comment.count ?? 0;
-
             final videoDescription = post?.submission.description ?? '';
             final url = post?.creator.pic ?? "heh";
-            final link_video = post?.submission.mediaUrl ?? "";
+
             return PostTemplate(
-                url: url,
-                username: username,
-                videoDescription: videoDescription,
-                numberOfLikes: count,
-                numberOfShares: "",
-                numberOfComments: comments,
-                userPost: VideoTile(
-                  link: link_video,
-                ));
+              url: url,
+              username: username,
+              videoDescription: videoDescription,
+              numberOfLikes: "1.2M",
+              numberOfComments: "1212",
+              numberOfShares: "122",
+              userPost: Container(
+                // color: Colors.deepPurple[i],
+                child: Center(child: Text('page : $index')),
+              ),
+            );
           }),
       // body: PageView(
       //   scrollDirection: Axis.vertical,

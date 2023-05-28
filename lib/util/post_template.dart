@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_shorts_clone/util/LikeButton.dart';
 
 import 'button.dart';
 
 class PostTemplate extends StatelessWidget {
   final String username;
   final String videoDescription;
-  final int numberOfLikes;
-  final int numberOfComments;
+  final String numberOfLikes;
+  final String numberOfComments;
   final String numberOfShares;
   final String url;
+  // ignore: prefer_typing_uninitialized_variables
   final userPost;
-
   const PostTemplate({
-    Key? key,
+    super.key,
     required this.username,
     required this.videoDescription,
     required this.numberOfLikes,
@@ -21,8 +20,7 @@ class PostTemplate extends StatelessWidget {
     required this.numberOfComments,
     required this.userPost,
     required this.url,
-  }) : super(key: key);
-
+  });
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -30,77 +28,68 @@ class PostTemplate extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // user post is at back
+          //user post is at back
           userPost,
-          // username and caption
+          //username and caption
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 45, bottom: 15),
             child: Container(
               width: screenWidth * 3.25 / 4,
               alignment: const Alignment(-1, 1),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Row(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(desiredWidth / 2),
-                        child: Image.network(
-                          url,
-                          width: desiredWidth,
-                          height: desiredWidth,
-                          fit: BoxFit.cover,
-                          loadingBuilder: (BuildContext context, Widget child,
-                              ImageChunkEvent? loadingProgress) {
-                            if (loadingProgress == null) {
-                              // Image is fully loaded
-                              return child;
-                            } else {
-                              // Placeholder or loading indicator
-                              return const CircularProgressIndicator();
-                              // return Image.asset(
-                              //   'assets/images/placeholder.png', // Replace with your placeholder image asset path
-                              //   width: desiredWidth,
-                              //   height: desiredWidth,
-                              //   fit: BoxFit.cover,
-                              // );
-                            }
-                          },
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "@$username",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  RichText(
-                    text: TextSpan(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
                       children: [
-                        TextSpan(
-                          text: videoDescription,
-                          style: const TextStyle(color: Colors.white),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(desiredWidth / 2),
+                          child: Image.network(
+                            url,
+                            width: desiredWidth,
+                            height: desiredWidth,
+                            fit: BoxFit.cover,
+                            loadingBuilder: (BuildContext context, Widget child,
+                                ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) {
+                                // Image is fully loaded
+                                return child;
+                              } else {
+                                // Placeholder or loading indicator
+                                return CircularProgressIndicator();
+                                // return Image.asset(
+                                //   'assets/images/placeholder.png', // Replace with your placeholder image asset path
+                                //   width: desiredWidth,
+                                //   height: desiredWidth,
+                                //   fit: BoxFit.cover,
+                                // );
+                              }
+                            },
+                          ),
                         ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text("@$username",
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16)),
                       ],
                     ),
-                  ),
-                ],
-              ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    RichText(
+                        text: TextSpan(children: [
+                      TextSpan(
+                          text: videoDescription,
+                          style: const TextStyle(color: Colors.white)),
+                    ])),
+                  ]),
             ),
           ),
           Positioned(
             bottom: 15.0,
-            right: 25.0,
+            right: 15.0,
             child: Align(
               alignment: Alignment.bottomRight,
               child: Padding(
@@ -132,7 +121,7 @@ class PostTemplate extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              ]),
             ),
           ),
         ],

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class MyButton extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
   final icon;
-  final int? number;
+  final String number;
 
-  MyButton({super.key, this.icon, this.number});
+  MyButton({super.key, this.icon, required this.number});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MyButton extends StatelessWidget {
           const SizedBox(
             height: 6,
           ),
-          Text(number.toString()),
+          Text(number),
         ],
       ),
     );
