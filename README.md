@@ -17,7 +17,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
 ## Installation
-
+Currently due To my schedule the app is not polished and optimized.
 To run the YT Shorts Clone project locally, you'll need to have Flutter and the necessary dependencies set up on your machine. Follow these steps to get started:
 
 - Make sure you have Flutter installed on your system. If you haven't installed it yet, you can follow the official Flutter installation guide for your operating system.
@@ -32,4 +32,11 @@ To run the YT Shorts Clone project locally, you'll need to have Flutter and the 
   `flutter run`
 
 ## APK Installation
-- Navigate to
+- Navigate to the apk-release using the following command `<project_directory>/build/app/outputs/apk/release/app-release.apk`
+- Install the apk-release.apk in your mobile device.
+
+
+## ScreenShots
+![ScreenShot1](/assets/images/screenShot1.png)
+![ScreenShot2](/assets/images/screenShot2.png)
+![ScreenShot3](/assets/images/screenShot3.png)
