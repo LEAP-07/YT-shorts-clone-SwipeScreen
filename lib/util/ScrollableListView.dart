@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_shorts_clone/views/SwipeScreen.dart';
 
 class ScrollableListView extends StatelessWidget {
   final String name;
@@ -26,35 +27,64 @@ class ScrollableListView extends StatelessWidget {
                 ),
               ],
             ),
-            child: Column(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.network(
-                        thumbnail_url,
-                        height: 100,
-                        width: 100,
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
-                          name,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                28), // Adjust the value as per your requirement
+                            child: Image.network(
+                              thumbnail_url,
+                              height: 100,
+                              width: 100,
+                            ),
+                          ),
                         ),
-                        const SizedBox(
-                          height: 2,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              name,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18),
+                            ),
+                            const SizedBox(
+                              height: 2,
+                            ),
+                            Text('@$handle'),
+                          ],
                         ),
-                        Text('@$handle'),
                       ],
-                    )
+                    ),
                   ],
+                ),
+                //button
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 43, 43, 43),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        bottomLeft: Radius.circular(10.0)),
+                  ),
+                  padding: const EdgeInsets.only(right: 20),
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_forward_ios_rounded),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SwipeScreen()),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
