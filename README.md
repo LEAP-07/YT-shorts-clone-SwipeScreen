@@ -32,4 +32,5 @@ To run the YT Shorts Clone project locally, you'll need to have Flutter and the 
   `flutter run`
 
 ## APK Installation
-- Navigate to
+- Navigate to the apk-release using the following command `<project_directory>/build/app/outputs/apk/release/app-release.apk`
+- Install the apk-release.apk in your mobile device.
